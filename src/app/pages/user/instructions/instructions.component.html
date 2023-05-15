@@ -1,0 +1,36 @@
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <mat-card class="mt20">
+          <mat-card-header>
+            <mat-card-title>
+              Read the instructions carefully
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-subtitle>
+            One more step to go
+          </mat-card-subtitle>
+          <mat-card-content class="ml30">
+            <h1>{{ exam.title }}</h1>
+            <p>{{ exam.description }}</p>
+            <mat-divider></mat-divider>
+            <br>
+            <h1>Important instructions</h1>
+            <ul>
+              <li>This quiz is for practice purposes only</li>
+              <li>You have to submit the quiz in <b>{{ exam.numberOfQuestions * 2 }} minutes</b></li>
+              <li>You can try the quiz any number of times</li>
+              <li>There are <b>{{ exam.maxPoints / exam.numberOfQuestions }} points per question</b></li>
+            </ul>
+          </mat-card-content>
+          <mat-card-actions class="text-center mb20">
+            <button (click) = "startExam()" mat-raised-button color="primary">
+              Start exam
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
