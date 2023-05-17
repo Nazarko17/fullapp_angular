@@ -1,0 +1,35 @@
+<div class="bootstrap-wrapper">
+  <div class="container-fluid">
+    <div class="row mt20" *ngIf="exams">
+      <div class="col-md-6" *ngFor="let e of exams">
+        <h1 class="ml10"><b>{{ e.categoryDTO.title}}</b></h1>
+        <mat-card class="mb20">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image">
+            </div>
+            <mat-card-title>
+              <h1>{{ e.title }}</h1>
+            </mat-card-title>
+            <mat-card-subtitle>
+              {{ e.description }}
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-card-actions>
+              <button mat-flat-button color="primary" [routerLink]="'/user-dashboard/instructions/' + e.id" class="ml10">Start</button>
+              <button mat-stroked-button color="primary">Questions: {{ e.numberOfQuestions }}</button>
+              <button mat-stroked-button color="primary">Max points: {{ e.maxPoints }}</button>
+            </mat-card-actions>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-md-12" *ngIf="exams.length == 0">
+        <mat-card>
+          <mat-card-content>
+            <h1>No data for this category</h1>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

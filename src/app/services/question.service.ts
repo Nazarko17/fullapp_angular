@@ -29,9 +29,9 @@ export class QuestionService {
     return this.http.get(`${baseURL}/question/${questionId}`);
   }
 
-  public questionsListForExam(examId:any) {
-    return this.http.get(`${baseURL}/question/exam/all/${examId}`);
-  }
+  // public questionsListForExam(examId:any) {
+  //   return this.http.get(`${baseURL}/question/exam/all/${examId}`);
+  // }
 
   public evaluateExam(questions:any) {
     return this.http.post(`${baseURL}/question/evaluate-exam`, questions);

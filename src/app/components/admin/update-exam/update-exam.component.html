@@ -1,0 +1,50 @@
+<mat-card>
+  <h1>Update exam</h1>
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <form *ngIf="examDTO" (submit)="updateExam()">
+        <mat-form-field class="w100" appearance="fill">
+          <mat-label>Title</mat-label>
+          <input type="text" name="title" placeholder="Title" matInput [(ngModel)]="examDTO.title" required>
+        </mat-form-field>
+        <mat-form-field class="w100" appearance="fill">
+          <mat-label>Description</mat-label>
+          <textarea type="text" name="description" placeholder="Description" matInput rows="8" [(ngModel)]="examDTO.description"></textarea>
+        </mat-form-field>
+
+        <div class="row">
+          <div class="col-md-6">
+            <mat-form-field class="w100" appearance="fill">
+              <mat-label>Max points</mat-label>
+              <input type="text" name="maxPoints" placeholder="Max points" matInput [(ngModel)]="examDTO.maxPoints">
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <mat-form-field class="w100" appearance="fill">
+              <mat-label>Number of questions</mat-label>
+              <input type="text" name="numberOfQuestions" placeholder="Number of questions" matInput [(ngModel)]="examDTO.numberOfQuestions">
+            </mat-form-field>
+          </div>
+        </div>
+
+        <mat-slide-toggle class="mt20" [(ngModel)]="examDTO.active" name="active" color="primary">
+          Status
+        </mat-slide-toggle>
+
+        <mat-form-field appearance="fill" class="mt20 w100">
+          <mat-label>Categories</mat-label>
+          <mat-select name="categoryDTO" [(ngModel)]="examDTO.categoryDTO.id">
+            <mat-option *ngFor="let c of categories" [value]="c.id">
+              {{ c.title }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div class="container text-center">
+          <button mat-raised-button color="primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</mat-card>
+
+<!--{{ exam | json }}-->

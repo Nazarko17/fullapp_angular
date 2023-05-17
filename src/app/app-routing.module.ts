@@ -1,25 +1,24 @@
-import { HomeComponent } from './pages/home/home.component';
+import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {LoginComponent} from "./pages/login/login.component";
-import { SignupComponent } from './pages/signup/signup.component';
-import {DashboardComponent} from "./pages/admin/dashboard/dashboard.component";
-import {UserDashboardComponent} from "./pages/user/user-dashboard/user-dashboard.component";
+import {LoginComponent} from "./components/login/login.component";
+import { SignupComponent } from './components/signup/signup.component';
+import {DashboardComponent} from "./components/admin/dashboard/dashboard.component";
+import {UserDashboardComponent} from "./components/user/user-dashboard/user-dashboard.component";
 import {AdminGuard} from "./services/admin.guard";
 import {UserGuard} from "./services/user.guard";
-import {ProfileComponent} from "./pages/profile/profile.component";
-import {WelcomeComponent} from "./pages/admin/welcome/welcome.component";
-import {ViewCategoriesComponent} from "./pages/admin/view-categories/view-categories.component";
-import {AddCategoryComponent} from "./pages/admin/add-category/add-category.component";
-import {ViewExamsComponent} from "./pages/admin/view-exams/view-exams.component";
-import {AddExamComponent} from "./pages/admin/add-exam/add-exam.component";
-import {UpdateExamComponent} from "./pages/admin/update-exam/update-exam.component";
-import {ViewExamQuestionsComponent} from "./pages/admin/view-exam-questions/view-exam-questions.component";
-import {AddQuestionComponent} from "./pages/admin/add-question/add-question.component";
-import {UpdateQuestionComponent} from "./pages/admin/update-question/update-question.component";
-import {LoadExamComponent} from "./pages/user/load-exam/load-exam.component";
-import {InstructionsComponent} from "./pages/user/instructions/instructions.component";
-import {StartExamComponent} from "./pages/user/start-exam/start-exam.component";
+import {ProfileComponent} from "./components/admin/profile/profile.component";
+import {ViewCategoriesComponent} from "./components/admin/view-categories/view-categories.component";
+import {AddCategoryComponent} from "./components/admin/add-category/add-category.component";
+import {ViewExamsComponent} from "./components/admin/view-exams/view-exams.component";
+import {AddExamComponent} from "./components/admin/add-exam/add-exam.component";
+import {UpdateExamComponent} from "./components/admin/update-exam/update-exam.component";
+import {ViewExamQuestionsComponent} from "./components/admin/view-exam-questions/view-exam-questions.component";
+import {AddQuestionComponent} from "./components/admin/add-question/add-question.component";
+import {UpdateQuestionComponent} from "./components/admin/update-question/update-question.component";
+import {LoadExamComponent} from "./components/user/load-exam/load-exam.component";
+import {InstructionsComponent} from "./components/user/instructions/instructions.component";
+import {StartExamComponent} from "./components/user/start-exam/start-exam.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -30,7 +29,6 @@ const routes: Routes = [
     children:
       [
         { path: 'profile', component: ProfileComponent },
-        { path: '', component: WelcomeComponent },
         { path: 'categories', component: ViewCategoriesComponent },
         { path: 'add-category', component: AddCategoryComponent },
         { path: 'exams', component: ViewExamsComponent },
