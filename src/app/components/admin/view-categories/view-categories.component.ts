@@ -26,7 +26,23 @@ export class ViewCategoriesComponent implements OnInit {
         });
       }
       );
-
   }
 
+  deleteCategory(id:any) {
+    this.categoryService.deleteCategory(id).subscribe(
+      (data:any) => {
+        this.categories = this.categories.filter((exam:any) => exam.id != id);
+        console.log(data);
+        this.snack.open('Category has been deleted', 'Accept', {
+          duration: 3000
+        });
+      },
+      (error) => {
+        console.log(error);
+        this.snack.open('Error', 'Accept', {
+          duration: 3000
+        });
+      }
+    )
+  }
 }

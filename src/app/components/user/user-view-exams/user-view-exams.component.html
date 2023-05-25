@@ -16,9 +16,13 @@
           </mat-card-header>
           <mat-card-content>
             <mat-card-actions>
-              <button mat-flat-button color="primary" [routerLink]="'/user-dashboard/instructions/' + e.id" class="ml10">Start</button>
-              <button mat-stroked-button color="primary">Questions: {{ e.numberOfQuestions }}</button>
-              <button mat-stroked-button color="primary">Max points: {{ e.maxPoints }}</button>
+              <button mat-flat-button color="primary" [routerLink]="'/user-dashboard/instructions/' + e.id" class="ml20">Start</button>
+              <button mat-stroked-button color="primary" class="ml20">Questions: {{ e.numberOfQuestions }}</button>
+              <button mat-stroked-button color="primary" class="ml10">Max points: {{ e.maxPoints }}</button>
+              <button mat-stroked-button color="primary" style="color: green">Pass percentage: {{ e.passPercentage }}%</button>
+              <button *ngIf="e.difficulty == 'easy'" mat-stroked-button style="color: darkgreen"><b>EASY</b></button>
+              <button *ngIf="e.difficulty == 'medium'" mat-stroked-button style="color: gold"><b>MEDIUM</b></button>
+              <button *ngIf="e.difficulty == 'hard'" mat-stroked-button style="color: darkred"><b>HARD</b></button>
             </mat-card-actions>
           </mat-card-content>
         </mat-card>

@@ -1,22 +1,18 @@
+<div class="container text-center mt20">
+  <button routerLink="/admin/add-category" mat-raised-button color="primary">Add category</button>
+</div><br>
 <mat-card class="mt10" *ngFor="let c of categories">
   <mat-card-header>
     <div mat-card-avatar class="m120"><mat-icon mat-list-icon>category</mat-icon></div>
     <mat-card-title>
       {{ c.title }}
     </mat-card-title>
-    <mat-card-subtitle>
-      {{ c.description }}
-    </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <mat-card-actions>
-<!--      <button mat-stroked-button color="primary" class="ml20">Exams: {{ c.exams }}</button>-->
-      <button mat-flat-button color="primary" class="ml10">Update</button>
-      <button mat-flat-button color="warn" class="ml10">Delete</button>
+      <button mat-stroked-button color="primary" class="ml20">Exams: {{ c.numberOfExams }}</button>
+      <button [routerLink]="'/admin/category/' + c.id" mat-flat-button color="primary" class="ml20">Update</button>
+      <button mat-flat-button color="warn" class="ml10" (click)="deleteCategory(c.id)">Delete</button>
     </mat-card-actions>
   </mat-card-content>
 </mat-card>
-
-<div class="container text-center mt20">
-  <button routerLink="/admin/add-category" mat-raised-button color="primary">Add category</button>
-</div>

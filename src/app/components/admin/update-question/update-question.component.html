@@ -12,6 +12,16 @@
               <mat-label>Enter the question content</mat-label>
               <textarea rows="8" matInput placeholder="Content" name="content" [(ngModel)]="question.content"></textarea>
             </mat-form-field>
+            <br><br>
+            <div class="row">
+              <div class="col-md-6">
+                <mat-form-field class="w100">
+                  <mat-label>Enter the points</mat-label>
+                  <input type="number" matInput name="points" [(ngModel)]="question.points">
+                </mat-form-field>
+              </div>
+            </div>
+            <br>
             <div class="row">
               <div class="col-md-6">
                 <mat-form-field class="w100">

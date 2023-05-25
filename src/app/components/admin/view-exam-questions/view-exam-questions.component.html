@@ -1,4 +1,4 @@
-<h1 class="mt20">Questions for {{ title }}</h1>
+<h1 class="mt20">Questions for <b>{{ title }}</b></h1>
 <div class="bootstrap-wrapper">
   <div class="row">
     <div class="col-md-12">
@@ -8,8 +8,7 @@
       <mat-card *ngFor="let q of questions; let i = index" class="mt20">
         <mat-card-content>
           <p>
-            <b>{{ i + 1 }}.</b>
-            <span class="ml20" [innerHTML]="q.content"></span>
+            {{ i + 1 }}.<b><span class="ml10" [innerHTML]="q.content"></span></b>
           </p>
           <div class="container-fluid">
             <div class="row">
@@ -30,13 +29,16 @@
             </div>
             <mat-divider></mat-divider>
             <p class="mt20">
-              <b>Answer:</b> {{ q.answer }}
+              Answer: <b>{{ q.answer }}</b>
+            </p>
+            <p>
+              Points: <b>{{ q.points }}</b>
             </p>
           </div>
         </mat-card-content>
-        <mat-card-actions>
-          <button mat-stroked-button (click)="deleteQuestion(q.id)" color="warn">Delete</button>
-          <button mat-stroked-button [routerLink]="'/admin/question/' + q.id" color="primary">Update</button>
+        <mat-card-actions class="mb10">
+          <button mat-flat-button [routerLink]="'/admin/question/' + q.id" color="primary" class="ml20">Update</button>
+          <button mat-flat-button (click)="deleteQuestion(q.id)" color="warn" class="ml10">Delete</button>
         </mat-card-actions>
       </mat-card>
     </div>

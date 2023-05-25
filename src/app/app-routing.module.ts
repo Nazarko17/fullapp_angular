@@ -16,9 +16,13 @@ import {UpdateExamComponent} from "./components/admin/update-exam/update-exam.co
 import {ViewExamQuestionsComponent} from "./components/admin/view-exam-questions/view-exam-questions.component";
 import {AddQuestionComponent} from "./components/admin/add-question/add-question.component";
 import {UpdateQuestionComponent} from "./components/admin/update-question/update-question.component";
-import {LoadExamComponent} from "./components/user/load-exam/load-exam.component";
 import {InstructionsComponent} from "./components/user/instructions/instructions.component";
 import {StartExamComponent} from "./components/user/start-exam/start-exam.component";
+import {UpdateCategoryComponent} from "./components/admin/update-category/update-category.component";
+import {UpdateProfileComponent} from "./components/admin/update-profile/update-profile.component";
+import {UserViewExamsComponent} from "./components/user/user-view-exams/user-view-exams.component";
+import {UserProfileComponent} from "./components/user/user-profile/user-profile.component";
+import {UpdateUserProfileComponent} from "./components/user/update-user-profile/update-user-profile.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -29,20 +33,26 @@ const routes: Routes = [
     children:
       [
         { path: 'profile', component: ProfileComponent },
-        { path: 'categories', component: ViewCategoriesComponent },
-        { path: 'add-category', component: AddCategoryComponent },
         { path: 'exams', component: ViewExamsComponent },
         { path: 'add-exam', component: AddExamComponent },
         { path: 'exam/:examId', component: UpdateExamComponent },
-        { path: 'questions/:examId/:title', component: ViewExamQuestionsComponent },
+        { path: 'add-category', component: AddCategoryComponent },
+        { path: 'categories', component: ViewCategoriesComponent },
+        { path: 'profile/update', component: UpdateProfileComponent },
+        { path: 'category/:categoryId', component: UpdateCategoryComponent },
+        { path: 'question/:questionId', component: UpdateQuestionComponent },
         { path: 'add-question/:examId/:title', component: AddQuestionComponent },
-        { path: 'question/:questionId', component: UpdateQuestionComponent }
+        { path: 'questions/:examId/:title', component: ViewExamQuestionsComponent }
+
       ]
   },
+
   { path: 'user-dashboard', component: UserDashboardComponent, canActivate: [UserGuard],
     children: [
-      { path: ':categoryId', component: LoadExamComponent }, //bad code (дві крапки) :
+      { path: 'user-profile', component: UserProfileComponent },
+      { path: ':categoryId', component: UserViewExamsComponent }, //bad code (дві крапки) :
       { path: 'instructions/:examId', component: InstructionsComponent },
+      { path: 'user-profile/update', component: UpdateUserProfileComponent },
     ] },
   { path: 'start/:examId', component: StartExamComponent, canActivate: [UserGuard] }
 ];

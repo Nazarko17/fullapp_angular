@@ -15,6 +15,7 @@ export class AddQuestionComponent implements OnInit {
   question:any = {
     examDTO: {},
     content: '',
+    points: '',
     option1: '',
     option2: '',
     option3: '',
@@ -49,6 +50,9 @@ export class AddQuestionComponent implements OnInit {
     if(this.question.answer.trim() == '' || this.question.answer.trim() == null) {
       return;
     }
+    if(this.question.points == '' || this.question.answer == null) {
+      return;
+    }
 
     this.questionService.saveQuestion(this.question).subscribe(
       (data:any) => {
@@ -57,6 +61,7 @@ export class AddQuestionComponent implements OnInit {
           duration: 3000
         });
         this.question.content = '';
+        this.question.points = ''
         this.question.option1 = '';
         this.question.option2 = '';
         this.question.option3 = '';

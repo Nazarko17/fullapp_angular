@@ -3,11 +3,11 @@ import {ActivatedRoute} from "@angular/router";
 import {ExamService} from "../../../services/exam.service";
 
 @Component({
-  selector: 'app-load-exam',
-  templateUrl: './load-exam.component.html',
-  styleUrls: ['./load-exam.component.css']
+  selector: 'app-user-view-exams',
+  templateUrl: './user-view-exams.component.html',
+  styleUrls: ['./user-view-exams.component.css']
 })
-export class LoadExamComponent implements OnInit {
+export class UserViewExamsComponent implements OnInit {
 
   categoryId:any;
   exams:any;
@@ -41,7 +41,5 @@ export class LoadExamComponent implements OnInit {
         )
       }
     });
-
   }
-
 }

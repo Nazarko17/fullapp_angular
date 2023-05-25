@@ -12,20 +12,23 @@
           <textarea [(ngModel)]="exam.description" name="description" type="text" placeholder="Description" matInput rows="8"></textarea>
         </mat-form-field>
 
-        <div class="row">
-          <div class="col-md-6">
-            <mat-form-field class="w100" appearance="fill">
-              <mat-label>Max points</mat-label>
-              <input [(ngModel)]="exam.maxPoints" name="maxPoints" type="text" placeholder="Max points" matInput>
-            </mat-form-field>
-          </div>
-          <div class="col-md-6">
-            <mat-form-field class="w100" appearance="fill">
-              <mat-label>Number of questions</mat-label>
-              <input [(ngModel)]="exam.numberOfQuestions" name="numberOfQuestions" type="text" placeholder="Number of questions" matInput>
-            </mat-form-field>
-          </div>
-        </div>
+        <mat-form-field appearance="fill" class="mt10 w100">
+          <mat-label>Pass percentage</mat-label>
+          <mat-select name="passPercentage" [(ngModel)]="exam.passPercentage">
+            <mat-option *ngFor="let p of percentages" [value]="p">
+              <b>{{ p }}%</b>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="mt10 w100">
+          <mat-label>Difficulty</mat-label>
+          <mat-select name="difficulty" [(ngModel)]="exam.difficulty">
+            <mat-option value="easy" style="color: darkgreen"><b>EASY</b></mat-option>
+            <mat-option value="medium" style="color: goldenrod"><b>MEDIUM</b></mat-option>
+            <mat-option value="hard" style="color: darkred"><b>HARD</b></mat-option>
+          </mat-select>
+        </mat-form-field>
 
         <mat-slide-toggle class="mt20" [(ngModel)]="exam.active" name="isActive" color="primary">
           Status
