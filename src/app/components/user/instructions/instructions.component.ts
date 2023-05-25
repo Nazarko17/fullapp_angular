@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ExamService} from "../../../services/exam.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {StartExamComponent} from "../start-exam/start-exam.component";
 
 @Component({
   selector: 'app-instructions',

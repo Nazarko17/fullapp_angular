@@ -12,7 +12,8 @@ export class AddCategoryComponent implements OnInit {
 
   category = {
     title: '',
-    description: ''
+    description: '',
+    numberOfexams: 0
   };
 
   constructor(private categoryService:CategoryService, private snack:MatSnackBar, private router:Router) { }
@@ -32,6 +33,7 @@ export class AddCategoryComponent implements OnInit {
       (data:any) => {
         this.category.title = '';
         this.category.description = '';
+        this.category.numberOfexams = 0;
         this.snack.open('Category successfully saved', 'Accept', {
           duration: 3000
         });

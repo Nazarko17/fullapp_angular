@@ -8,11 +8,13 @@ import baseURL from './helper';
 export class UserService {
 
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   public addUser(user:any){
-    return this.httpClient.post(`${baseURL}/register`,user);
+    return this.http.post(`${baseURL}/register`,user);
   }
 
-
+  public updateUser(user:any) {
+    return this.http.put(`${baseURL}/users/`, user);
+  }
 }

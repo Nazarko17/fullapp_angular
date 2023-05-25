@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CategoryService} from "../../../services/category.service";
-import { MatSnackBar } from '@angular/material/snack-bar';
+import {MatSnackBar} from '@angular/material/snack-bar';
 import {ExamService} from "../../../services/exam.service";
 import {error} from "@angular/compiler-cli/src/transformers/util";
 import {Router} from "@angular/router";
@@ -17,19 +17,24 @@ export class AddExamComponent implements OnInit {
   exam = {
     title: '',
     description: '',
-    maxPoints: '',
-    numberOfQuestions: '',
+    maxPoints: 0,
+    numberOfQuestions: 0,
+    passPercentage: '',
+    difficulty: '',
     active: true,
     categoryDTO: {
       id: ''
     }
   }
 
-  constructor(private categoryService: CategoryService, private examService:ExamService, private snack:MatSnackBar, private router:Router) { }
+  percentages: number[] = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+
+  constructor(private categoryService: CategoryService, private examService: ExamService, private snack: MatSnackBar, private router: Router) {
+  }
 
   ngOnInit(): void {
     this.categoryService.categoriesList().subscribe(
-      (data:any) => {
+      (data: any) => {
         this.categories = data;
         console.log(this.categories);
       },
@@ -44,24 +49,26 @@ export class AddExamComponent implements OnInit {
 
   saveExam() {
     console.log(this.exam);
-    if(this.exam.title.trim() == '' || this.exam.title == null) {
-      this.snack.open('Invalid title', 'Ok',{
+    if (this.exam.title.trim() == '' || this.exam.title == null) {
+      this.snack.open('Invalid title', 'Ok', {
         duration: 3000
       });
       return;
     }
 
     this.examService.addExam(this.exam).subscribe(
-      (data:any) => {
+      (data: any) => {
         console.log(data);
-        this.snack.open('Exam successfully added', 'Ok',{
+        this.snack.open('Exam successfully added', 'Ok', {
           duration: 3000
         });
         this.exam = {
           title: '',
           description: '',
-          maxPoints: '',
-          numberOfQuestions: '',
+          maxPoints: 0,
+          numberOfQuestions: 0,
+          passPercentage: '',
+          difficulty: '',
           active: true,
           categoryDTO: {
             id: ''
@@ -71,7 +78,7 @@ export class AddExamComponent implements OnInit {
       },
       (error) => {
         console.log(error);
-        this.snack.open('Error', 'Ok',{
+        this.snack.open('Error', 'Ok', {
           duration: 3000
         });
       }

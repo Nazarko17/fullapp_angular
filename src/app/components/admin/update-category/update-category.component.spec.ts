@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LoadExamComponent } from './load-exam.component';
+import { UpdateCategoryComponent } from './update-category.component';
 
-describe('LoadExamComponent', () => {
-  let component: LoadExamComponent;
-  let fixture: ComponentFixture<LoadExamComponent>;
+describe('UpdateCategoryComponent', () => {
+  let component: UpdateCategoryComponent;
+  let fixture: ComponentFixture<UpdateCategoryComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoadExamComponent ]
+      declarations: [ UpdateCategoryComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LoadExamComponent);
+    fixture = TestBed.createComponent(UpdateCategoryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

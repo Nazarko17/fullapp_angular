@@ -37,11 +37,15 @@ import { ViewExamQuestionsComponent } from './components/admin/view-exam-questio
 import { AddQuestionComponent } from './components/admin/add-question/add-question.component';
 import { UpdateQuestionComponent } from './components/admin/update-question/update-question.component';
 import { UserSidebarComponent } from './components/user/user-sidebar/user-sidebar.component';
-import { LoadExamComponent } from './components/user/load-exam/load-exam.component';
 import { InstructionsComponent } from './components/user/instructions/instructions.component';
 import { StartExamComponent } from './components/user/start-exam/start-exam.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {NgxUiLoaderHttpModule, NgxUiLoaderModule} from "ngx-ui-loader";
+import { UpdateCategoryComponent } from './components/admin/update-category/update-category.component';
+import { UpdateProfileComponent } from './components/admin/update-profile/update-profile.component';
+import { UserViewExamsComponent } from './components/user/user-view-exams/user-view-exams.component';
+import { UserProfileComponent } from './components/user/user-profile/user-profile.component';
+import { UpdateUserProfileComponent } from './components/user/update-user-profile/update-user-profile.component';
 
 @NgModule({
   declarations: [
@@ -63,9 +67,13 @@ import {NgxUiLoaderHttpModule, NgxUiLoaderModule} from "ngx-ui-loader";
     AddQuestionComponent,
     UpdateQuestionComponent,
     UserSidebarComponent,
-    LoadExamComponent,
     InstructionsComponent,
-    StartExamComponent
+    StartExamComponent,
+    UpdateCategoryComponent,
+    UpdateProfileComponent,
+    UserViewExamsComponent,
+    UserProfileComponent,
+    UpdateUserProfileComponent
   ],
   imports: [
     AppRoutingModule,

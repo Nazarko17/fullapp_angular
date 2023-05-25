@@ -3,7 +3,6 @@ import {LocationStrategy} from "@angular/common";
 import {ActivatedRoute} from "@angular/router";
 import {QuestionService} from "../../../services/question.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Component({
   selector: 'app-start-exam',
@@ -14,8 +13,10 @@ export class StartExamComponent implements OnInit {
 
   examID:any;
   questions:any;
-  achievedPoints = 0;
-  correctAnswers = 0;
+  // achievedPoints = 0;
+  // correctAnswers = 0;
+
+  examResult:any;
 
   isSent = false;
   timer:any;
@@ -35,7 +36,7 @@ export class StartExamComponent implements OnInit {
         console.log(data);
         this.questions = data;
 
-        this.timer = this.questions.length * 2 * 60;
+        this.timer = this.questions.length * 1.5 * 60;
 
         this.questions.forEach((q:any) => {
           q['correctAnswer'] = '';
@@ -78,8 +79,8 @@ export class StartExamComponent implements OnInit {
     this.questionService.evaluateExam(this.questions).subscribe(
       (data:any) => {
         console.log(data);
-        this.achievedPoints = data.achievedPoints;
-        this.correctAnswers = data.correctAnswers;
+        this.examResult = data;
+        console.log(this.examResult.isPassed);
         this.isSent = true;
       }, (error) => {
         console.log(error);
@@ -90,10 +91,12 @@ export class StartExamComponent implements OnInit {
   getFormattedTime() {
     let mm = Math.floor(this.timer / 60);
     let ss = this.timer - mm * 60;
-    return `${mm} : min : ${ss} sec`;
+    return `${mm} min ${ss} sec`;
   }
 
   printPage() {
     window.print();
   }
+
+  protected readonly length = length;
 }

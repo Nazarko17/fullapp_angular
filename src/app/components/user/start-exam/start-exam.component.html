@@ -18,7 +18,7 @@
           </h1>
         </ng-container>
 
-        <mat-card *ngFor="let q of questions; let i = index">
+        <mat-card *ngFor="let q of questions; let i = index" class="mt15">
           <mat-card-content>
             <p><b>{{ i+1 }}. </b> <span [innerHTML]="q.content"></span></p>
             <mat-divider></mat-divider>
@@ -35,15 +35,14 @@
               <div class="col-md-7 mt10">
                 <input [(ngModel)]="q.correctAnswer" type="radio" [value]="q.option4" name = {{i}}> {{ q.option4 }}
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6"></div>
-              <div class="col-md-6"></div>
+              <div class="col-md-7 ml20 mt20">
+                <p>You will receive <b>{{ q.points }} points</b> for this question</p>
+              </div>
             </div>
           </mat-card-content>
         </mat-card>
         <div class="container text-center mt20 mb20">
-          <button (click)="sendAnswer()" mat-raised-button color="primary">Send answer</button>
+          <button (click)="sendAnswer()" mat-raised-button color="primary">Send results</button>
         </div>
       </div>
       <div class="col-md-3">
@@ -53,12 +52,12 @@
               Timer
             </mat-card-title>
             <mat-card-subtitle>
-              The test will end automatically when the timer reaches 0:00
+              This exam will end automatically when the timer reaches 0:00
             </mat-card-subtitle>
           </mat-card-header>
           <mat-card-content>
             <h1 class="text-center">{{ getFormattedTime() }}</h1>
-            <mat-spinner mode="determinate" style="margin: auto;" [value]="(timer/(this.questions.length * 2 * 60)*100)"></mat-spinner>
+            <mat-spinner mode="determinate" style="margin: auto;" [value]="(timer / (this.questions.length * 1.5 * 60) * 100)"></mat-spinner>
           </mat-card-content>
         </mat-card>
       </div>
@@ -76,11 +75,12 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="text-center">
-<!--          <h1></h1>-->
-          <h1>Achieved points: {{ achievedPoints }}</h1>
-          <h1>Correct answers: {{ correctAnswers }}</h1>
+          <h1>Achieved points: <b>{{ examResult.achievedPoints }}</b></h1>
+          <h1>Correct answers: <b>{{ examResult.correctAnswers }}</b></h1>
+          <h1 *ngIf="examResult.isPassed == true">Exam result: <b style="color: green">PASSED</b></h1>
+          <h1 *ngIf="examResult.isPassed == false">Exam result: <b style="color: red">FAILED</b></h1>
         </mat-card-content>
-        <mat-card-actions class="text-center">
+        <mat-card-actions class="text-center mb10">
           <button (click)="printPage()" mat-raised-button color="primary">Print</button>
           <button mat-raised-button color="accent" [routerLink]="'/user-dashboard/0'">Complete</button>
         </mat-card-actions>

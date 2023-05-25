@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {ExamService} from "../../../services/exam.service";
-import {error} from "@angular/compiler-cli/src/transformers/util";
 import {CategoryService} from "../../../services/category.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
@@ -19,6 +18,7 @@ export class UpdateExamComponent implements OnInit {
   examDTO:any;
   categories:any;
 
+  percentages: number[] = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
   ngOnInit(): void {
     this.examId = this.route.snapshot.params['examId'];
     this.examService.getExam(this.examId).subscribe(
