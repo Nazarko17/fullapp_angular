@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {CategoryService} from "../../../services/category.service";
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {ExamService} from "../../../services/exam.service";
-import {error} from "@angular/compiler-cli/src/transformers/util";
 import {Router} from "@angular/router";
 
 @Component({

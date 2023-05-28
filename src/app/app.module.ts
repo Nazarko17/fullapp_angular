@@ -20,7 +20,7 @@ import {MatCardModule} from "@angular/material/card";
 import {AppRoutingModule} from "./app-routing.module";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatIconModule} from "@angular/material/icon";
-import {AuthInterceptor, authInterceptorProviders} from "./services/auth.interceptor";
+import {authInterceptorProviders} from "./services/auth.interceptor";
 import {DashboardComponent} from "./components/admin/dashboard/dashboard.component";
 import {UserDashboardComponent} from "./components/user/user-dashboard/user-dashboard.component";
 import {ProfileComponent} from "./components/admin/profile/profile.component";
