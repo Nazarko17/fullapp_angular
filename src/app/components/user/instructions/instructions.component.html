@@ -11,9 +11,10 @@
             <h1>Instructions</h1>
             <ul>
               <li *ngIf = "exam.numberOfQuestions == 1">There is <b>1 question</b> in the exam</li>
-              <li *ngIf = "exam.numberOfQuestions > 1">There are <b>{{ exam.numberOfQuestions }} questions</b> in the exam</li>
+              <li *ngIf = "exam.numberOfQuestions > 1">There are <b>{{ exam.numberOfQuestions }} questions</b></li>
+              <li>You can get <b>{{ exam.maxPoints }} points</b> in total</li>
               <li>You have to finish the exam in <b>{{ exam.numberOfQuestions * 1.5 }} minutes</b></li>
-              <li>You have to earn at least <b>{{ exam.passPercentage }}%</b> of points to successfully  pass the exam</li>
+              <li>You must score at least <b>{{ exam.passPercentage }}%</b> of total points to successfully  pass the exam</li>
               <li class="mt20">You can try the exam any number of times</li>
             </ul>
           </mat-card-content>

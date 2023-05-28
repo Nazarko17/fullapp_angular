@@ -75,10 +75,10 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="text-center">
-          <h1>Achieved points: <b>{{ examResult.achievedPoints }}</b></h1>
-          <h1>Correct answers: <b>{{ examResult.correctAnswers }}</b></h1>
-          <h1 *ngIf="examResult.isPassed == true">Exam result: <b style="color: green">PASSED</b></h1>
-          <h1 *ngIf="examResult.isPassed == false">Exam result: <b style="color: red">FAILED</b></h1>
+          <h1>Achieved points: <b>{{ examResultDTO.achievedPoints }}</b></h1>
+          <h1>Correct answers: <b>{{ examResultDTO.correctAnswers }}</b></h1>
+          <h1 *ngIf="examResultDTO.isPassed == true">Exam result: <b style="color: green">PASSED</b></h1>
+          <h1 *ngIf="examResultDTO.isPassed == false">Exam result: <b style="color: red">FAILED</b></h1>
         </mat-card-content>
         <mat-card-actions class="text-center mb10">
           <button (click)="printPage()" mat-raised-button color="primary">Print</button>

@@ -13,10 +13,8 @@ export class StartExamComponent implements OnInit {
 
   examID:any;
   questions:any;
-  // achievedPoints = 0;
-  // correctAnswers = 0;
 
-  examResult:any;
+  examResultDTO:any;
 
   isSent = false;
   timer:any;
@@ -79,8 +77,10 @@ export class StartExamComponent implements OnInit {
     this.questionService.evaluateExam(this.questions).subscribe(
       (data:any) => {
         console.log(data);
-        this.examResult = data;
-        console.log(this.examResult.isPassed);
+        this.examResultDTO = data;
+        console.log(data)
+        console.log(data.achievedPoints);
+        console.log(data.isPassed)
         this.isSent = true;
       }, (error) => {
         console.log(error);
