@@ -19,6 +19,7 @@ export class AddExamComponent implements OnInit {
     maxPoints: 0,
     numberOfQuestions: 0,
     passPercentage: '',
+    pointsToPass: 0,
     difficulty: '',
     active: true,
     categoryDTO: {
@@ -67,6 +68,7 @@ export class AddExamComponent implements OnInit {
           maxPoints: 0,
           numberOfQuestions: 0,
           passPercentage: '',
+          pointsToPass: 0,
           difficulty: '',
           active: true,
           categoryDTO: {

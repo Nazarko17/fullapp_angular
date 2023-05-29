@@ -75,8 +75,8 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="text-center">
-          <h1>Achieved points: <b>{{ examResultDTO.achievedPoints }}</b></h1>
-          <h1>Correct answers: <b>{{ examResultDTO.correctAnswers }}</b></h1>
+          <h1>Correct answers: <b>{{ examResultDTO.correctAnswers }} / {{ questions.length }}</b></h1>
+          <h1>Achieved points: <b>{{ examResultDTO.achievedPoints }} / {{ questions[0].examDTO.maxPoints }}</b></h1>
           <h1 *ngIf="examResultDTO.isPassed == true">Exam result: <b style="color: green">PASSED</b></h1>
           <h1 *ngIf="examResultDTO.isPassed == false">Exam result: <b style="color: red">FAILED</b></h1>
         </mat-card-content>

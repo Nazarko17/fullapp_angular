@@ -17,12 +17,12 @@
           <mat-card-content>
             <mat-card-actions>
               <button mat-flat-button color="primary" [routerLink]="'/user-dashboard/instructions/' + e.id" class="ml20">Start</button>
-              <button mat-stroked-button color="primary" class="ml20">Questions: {{ e.numberOfQuestions }}</button>
-              <button mat-stroked-button color="primary" class="ml10">Max points: {{ e.maxPoints }}</button>
-              <button mat-stroked-button color="primary" style="color: green">Pass percentage: {{ e.passPercentage }}%</button>
-              <button *ngIf="e.difficulty == 'easy'" mat-stroked-button style="color: darkgreen"><b>EASY</b></button>
-              <button *ngIf="e.difficulty == 'medium'" mat-stroked-button style="color: gold"><b>MEDIUM</b></button>
-              <button *ngIf="e.difficulty == 'hard'" mat-stroked-button style="color: darkred"><b>HARD</b></button>
+              <button mat-stroked-button color="primary" class="ml40">Questions: {{ e.numberOfQuestions }}</button>
+              <button mat-stroked-button color="primary">Max points: {{ e.maxPoints }}</button>
+              <button mat-stroked-button color="primary">Points to pass: {{ e.pointsToPass }}</button>
+              <button *ngIf="e.difficulty == 'easy'" mat-stroked-button color="forestgreen" class="ml30">EASY</button>
+              <button *ngIf="e.difficulty == 'medium'" mat-stroked-button color="goldenrod" class="ml30">MEDIUM</button>
+              <button *ngIf="e.difficulty == 'hard'" mat-stroked-button color="darkred" class="ml30">HARD</button>
             </mat-card-actions>
           </mat-card-content>
         </mat-card>

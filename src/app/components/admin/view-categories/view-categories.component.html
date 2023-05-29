@@ -11,7 +11,7 @@
   <mat-card-content>
     <mat-card-actions>
       <button mat-stroked-button color="primary" class="ml20">Exams: {{ c.numberOfExams }}</button>
-      <button [routerLink]="'/admin/category/' + c.id" mat-flat-button color="primary" class="ml20">Update</button>
+      <button [routerLink]="'/admin/category/' + c.id" mat-flat-button color="primary" class="ml40">Update</button>
       <button mat-flat-button color="warn" class="ml10" (click)="deleteCategory(c.id)">Delete</button>
     </mat-card-actions>
   </mat-card-content>
