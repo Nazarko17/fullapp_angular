@@ -46,6 +46,9 @@ import { UpdateProfileComponent } from './components/admin/update-profile/update
 import { UserViewExamsComponent } from './components/user/user-view-exams/user-view-exams.component';
 import { UserProfileComponent } from './components/user/user-profile/user-profile.component';
 import { UpdateUserProfileComponent } from './components/user/update-user-profile/update-user-profile.component';
+import {MatMenuModule} from "@angular/material/menu";
+import { JournalComponent } from './components/user/journal/journal.component';
+import {MatTableDataSource, MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -73,7 +76,8 @@ import { UpdateUserProfileComponent } from './components/user/update-user-profil
     UpdateProfileComponent,
     UserViewExamsComponent,
     UserProfileComponent,
-    UpdateUserProfileComponent
+    UpdateUserProfileComponent,
+    JournalComponent
   ],
   imports: [
     AppRoutingModule,
@@ -96,7 +100,9 @@ import { UpdateUserProfileComponent } from './components/user/update-user-profil
     NgxUiLoaderModule,
     NgxUiLoaderHttpModule.forRoot({
       showForeground: true,
-    })
+    }),
+    MatMenuModule,
+    MatTableModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

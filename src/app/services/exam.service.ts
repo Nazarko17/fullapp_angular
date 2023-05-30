@@ -40,4 +40,12 @@ export class ExamService {
   public getActiveExamsByCategory(categoryId:any) {
     return this.http.get(`${baseURL}/exam/category/active/${categoryId}`);
   }
+
+  public findExamResults() {
+    return this.http.get(`${baseURL}/exam/results`);
+  }
+
+  public deleteExamResults() {
+    return this.http.delete(`${baseURL}/exam/results/delete`);
+  }
 }

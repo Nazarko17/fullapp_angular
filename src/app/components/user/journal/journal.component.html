@@ -1,0 +1,35 @@
+<mat-card style="margin-left: 10px;">
+  <h1>Journal</h1>
+  <mat-card-content>
+    <div class="bootstrap-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 offset-1">
+            <table class="table text-center">
+              <tr>
+                <th>TITLE</th>
+                <th>ACHIEVED POINTS</th>
+                <th>CORRECT ANSWERS</th>
+                <th>COMPLETION TIME</th>
+                <th>RESULT</th>
+              </tr>
+              <tr *ngFor="let e of examResults">
+                <td>{{ e.examDTO.title }}</td>
+                <td>{{ e.achievedPoints }} / {{ e.examDTO.maxPoints }}</td>
+                <td>{{ e.correctAnswers }}</td>
+                <td>{{ e.completionTime }}</td>
+                <td>
+                  <p *ngIf="e.isPassed == true" style="color: green"><b>PASSED</b></p>
+                  <p *ngIf="e.isPassed == false" style="color: red"><b>FAILED</b></p>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div><br>
+    <mat-card-actions class="text-center">
+      <button mat-raised-button color="warn" (click)="deleteExamResults()">Clear the journal</button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>

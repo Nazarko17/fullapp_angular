@@ -1,25 +1,21 @@
 <mat-toolbar color="primary">
-  <a [routerLink]="'/'"
-    mat-icon-button
-    class="example-icon"
-    arial-label="Example icon-button with menu icon">
-    <mat-icon>menu_books</mat-icon>
-  </a>
-  <span>EXAMS</span>
+  <button [routerLink]="'/'" mat-button class="ml100 fs">
+    <b>EXAM PORTAL</b>
+  </button>
   <span class="example-spacer"></span>
-  <a *ngIf="!isLoggedIn" [routerLink]="'/login'"
-    mat-icon-button class = "example-icon favorite-icon"
-    aria-label = "Example icon-button with heart icon">Log in</a>
-  <a *ngIf="!isLoggedIn" [routerLink]="'/signup'"
-     mat-icon-button class="example-icon favorite-icon mr20 ml70"
-    aria-label="Example icon-button with heart icon">Register</a>
-  <button *ngIf = "isLoggedIn && user.role == 'USER'" mat-button routerLink="/user-dashboard/0"
-          style="margin-right: 10px" class="example-icon favorite-icon"
-          aria-label="Example icon-button with heart icon">{{ user.username.toUpperCase() }}</button>
-  <button *ngIf = "isLoggedIn && user.role == 'ADMIN'" mat-button routerLink="/admin/profile"
-          style="margin-right: 10px" class="example-icon favorite-icon"
-          aria-label="Example icon-button with heart icon">{{ user.username.toUpperCase() }}</button>
-  <a *ngIf = "isLoggedIn" (click) = "logout()" mat-icon-button
-    style="margin-right: 50px" class="example-icon favorite-icon"
-  aria-label="Example icon-button with heart icon">Log out</a>
+  <button *ngIf="!isLoggedIn" [routerLink]="'/login'" mat-button><b>Log in</b></button>
+  <button *ngIf="!isLoggedIn" [routerLink]="'/signup'" mat-button class="mr100 ml40"><b>Register</b></button>
+  <button *ngIf = "isLoggedIn" mat-button class="mr100" [matMenuTriggerFor]="afterMenu"><b>{{ user.username.toUpperCase() }}</b></button>
+  <mat-menu #afterMenu="matMenu" xPosition="after">
+    <button *ngIf = "isLoggedIn && user.role == 'USER'" mat-menu-item routerLink="/user-dashboard/user-profile">
+      <mat-icon>account_circle</mat-icon> <span><b>PROFILE</b></span>
+    </button>
+    <button *ngIf = "isLoggedIn && user.role == 'ADMIN'" mat-menu-item routerLink="/admin/profile">
+      <mat-icon>account_circle</mat-icon> <span><b>PROFILE</b></span>
+    </button>
+    <mat-divider></mat-divider>
+    <button *ngIf = "isLoggedIn" (click) = "logout()" mat-menu-item>
+      <mat-icon>logout</mat-icon> <span><b>LOG OUT</b></span>
+    </button>
+  </mat-menu>
 </mat-toolbar>

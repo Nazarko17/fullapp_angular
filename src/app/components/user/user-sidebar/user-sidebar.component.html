@@ -4,11 +4,14 @@
     <button mat-list-item routerLink="user-profile">
       <mat-icon mat-list-icon>account_circle</mat-icon> Profile
     </button>
+    <button mat-list-item routerLink="journal">
+      <mat-icon mat-list-icon>assessment</mat-icon> Journal
+    </button>
     <button routerLink="/user-dashboard/0" mat-list-item>
       <mat-icon mat-list-icon>quiz</mat-icon> Exams
     </button>
     <button [routerLink]="'/user-dashboard/' + c.id" mat-list-item *ngFor="let c of categories">
-      <mat-icon mat-list-icon>list</mat-icon> {{ c.title }}
+      <mat-icon mat-list-icon>format_list_bulleted</mat-icon> {{ c.title }}
     </button>
   </mat-action-list>
 </mat-card>
