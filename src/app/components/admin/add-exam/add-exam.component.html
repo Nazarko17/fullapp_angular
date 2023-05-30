@@ -24,7 +24,7 @@
         <mat-form-field appearance="fill" class="mt10 w100">
           <mat-label>Difficulty</mat-label>
           <mat-select name="difficulty" [(ngModel)]="exam.difficulty">
-            <mat-option value="easy" style="color: darkgreen"><b>EASY</b></mat-option>
+            <mat-option value="easy" style="color: forestgreen"><b>EASY</b></mat-option>
             <mat-option value="medium" style="color: goldenrod"><b>MEDIUM</b></mat-option>
             <mat-option value="hard" style="color: darkred"><b>HARD</b></mat-option>
           </mat-select>
@@ -38,7 +38,7 @@
           <mat-label>Categories</mat-label>
           <mat-select name="category" [(ngModel)]="exam.categoryDTO.id">
             <mat-option *ngFor="let c of categories" [value]="c.id">
-              {{ c.title }}
+              <b>{{ c.title }}</b>
             </mat-option>
           </mat-select>
         </mat-form-field>

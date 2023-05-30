@@ -34,11 +34,10 @@ export class UserViewExamsComponent implements OnInit {
         this.examService.getActiveExamsByCategory(this.categoryId).subscribe(
           (data:any) => {
             this.exams = data;
-            console.log(this.exams);
           }, (error) => {
             console.log(error);
           }
-        )
+        );
       }
     });
   }

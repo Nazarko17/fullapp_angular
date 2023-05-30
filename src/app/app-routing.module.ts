@@ -23,6 +23,7 @@ import {UpdateProfileComponent} from "./components/admin/update-profile/update-p
 import {UserViewExamsComponent} from "./components/user/user-view-exams/user-view-exams.component";
 import {UserProfileComponent} from "./components/user/user-profile/user-profile.component";
 import {UpdateUserProfileComponent} from "./components/user/update-user-profile/update-user-profile.component";
+import {JournalComponent} from "./components/user/journal/journal.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -50,6 +51,7 @@ const routes: Routes = [
   { path: 'user-dashboard', component: UserDashboardComponent, canActivate: [UserGuard],
     children: [
       { path: 'user-profile', component: UserProfileComponent },
+      { path: 'journal', component: JournalComponent },
       { path: ':categoryId', component: UserViewExamsComponent }, //bad code (дві крапки) :
       { path: 'instructions/:examId', component: InstructionsComponent },
       { path: 'user-profile/update', component: UpdateUserProfileComponent },

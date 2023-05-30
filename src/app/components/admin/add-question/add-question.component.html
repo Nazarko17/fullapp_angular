@@ -17,7 +17,7 @@
               <div class="col-md-6">
                 <mat-form-field class="w100">
                   <mat-label>Enter the points</mat-label>
-                  <input type="number" matInput name="points" [(ngModel)]="question.points">
+                  <input type="number" min="0" matInput name="points" [(ngModel)]="question.points">
                 </mat-form-field>
               </div>
             </div>

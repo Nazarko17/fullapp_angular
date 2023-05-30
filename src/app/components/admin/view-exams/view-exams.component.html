@@ -3,7 +3,7 @@
 </div><br>
 <mat-card class="mt10" *ngFor="let e of exams">
   <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
+    <div mat-card-avatar class="ml20"><mat-icon mat-list-icon>quiz</mat-icon></div>
       <mat-card-title>
         {{ e.title }}
       </mat-card-title>
@@ -13,13 +13,14 @@
   </mat-card-header>
   <mat-card-content>
     <mat-card-actions>
-      <button mat-flat-button color="primary" [routerLink]="'/admin/questions/' + e.id + '/' + e.title" class="ml20">Questions</button>
-      <button mat-stroked-button color="primary" class="ml20">Questions: {{ e.numberOfQuestions }}</button>
-      <button mat-stroked-button color="primary" class="ml20">Max points: {{ e.maxPoints }}</button>
-      <button mat-stroked-button color="primary" class="ml20"  style="color: green">Pass percentage: {{ e.passPercentage }}%</button>
-      <button *ngIf="e.difficulty == 'easy'" mat-stroked-button class="ml20"  style="color: darkgreen"><b>EASY</b></button>
-      <button *ngIf="e.difficulty == 'medium'" mat-stroked-button class="ml20" style="color: gold"><b>MEDIUM</b></button>
-      <button *ngIf="e.difficulty == 'hard'" mat-stroked-button class="ml20" style="color: darkred"><b>HARD</b></button>
+      <button mat-flat-button color="primary" [routerLink]="'/admin/questions/' + e.id + '/' + e.title" class="ml20">Questions: {{ e.numberOfQuestions }}</button>
+      <button mat-stroked-button color="primary" class="ml40">Max points: {{ e.maxPoints }}</button>
+      <button mat-stroked-button color="primary">Points to pass: {{ e.pointsToPass }}</button>
+      <button *ngIf="e.difficulty == 'easy'" mat-stroked-button color="forestgreen" class="ml30">EASY</button>
+      <button *ngIf="e.difficulty == 'medium'" mat-stroked-button color="goldenrod" class="ml30">MEDIUM</button>
+      <button *ngIf="e.difficulty == 'hard'" mat-stroked-button color="darkred" class="ml30">HARD</button>
+    </mat-card-actions>
+    <mat-card-actions>
       <button [routerLink]="'/admin/exam/' + e.id" mat-flat-button color="primary" class="ml20">Update</button>
       <button mat-flat-button color="warn" class="ml10" (click)="deleteExam(e.id)">Delete</button>
     </mat-card-actions>
